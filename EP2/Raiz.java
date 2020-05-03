@@ -13,6 +13,9 @@
 /*
 	Cálculo para raiz quadrada
 */
+
+import java.lang.Math;
+
 public class Raiz {
 	/*
 		Calcula a raiz quadrada de um valor, com uma determinada
@@ -31,7 +34,13 @@ public class Raiz {
         if(a < 0 || epsilon >= 1 || epsilon <= 0){
             return -1;
         } 
-        return 0;
+        double xi = a/2;
+        double abs = 0;
+        while(abs >= epsilon){
+            xi = 1/2 * (xi + (a / xi));
+            abs = Math.abs(xi + 1 - xi);
+        }
+        return xi;
 	}
 
 
